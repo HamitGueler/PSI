@@ -1,7 +1,6 @@
 When:
-  with_name: test.txt
+  with_name: test.foo
   in_directory: /foo/bar
 Then:
-  after: 5
-  file_count: 0
+  after: 10
   in_directory: /foo/bar

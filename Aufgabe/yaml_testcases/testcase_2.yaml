@@ -1,0 +1,7 @@
+When:
+  with_name: test.foo
+  in_directory: foo/bar/
+Then:
+  after: 1s0s
+  file_count: 1
+  in_directory: /foo/bar
