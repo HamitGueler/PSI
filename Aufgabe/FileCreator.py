@@ -24,7 +24,7 @@ class FileCreator:
 
     # function could be improved, but for this purpose it should be enough
     def create_valid_path(self, file_path):
-        if file_path.startswith("/"):
+        if file_path.startswith("/") or  file_path.startswith("\\"):
             file_path = "." + file_path
 
         file_path = os.path.abspath(file_path)
