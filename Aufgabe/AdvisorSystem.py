@@ -21,7 +21,7 @@ class AdvisorSystem:
             and self.__yaml_data["Then"]["after"] is not None
             and self.__yaml_data["Then"]["in_directory"] is not None
         ):
-
+            #checks if [Then][file_count] has a vaild value (number) via regex-expression
             count_valid = re.search(
                 "^[0-9]*\Z", str(self.__yaml_data["Then"]["file_count"])
             )
@@ -45,10 +45,17 @@ class AdvisorSystem:
 
                     file_count = 0
                     path = file_creator.create_valid_path(
-                        self.__yaml_data["Then"]["in_directory"]
+                        str(self.__yaml_data["Then"]["in_directory"])
                     )
-                    for _ in os.listdir(path):
-                        file_count += 1
+                    try:
+                        for _ in os.listdir(path):
+                            file_count += 1
+                    except FileNotFoundError as e:
+                        print(e)
+                        return False
+                    except IOError as e:
+                        print(e)
+                        return False
 
                     if file_count != self.__yaml_data["Then"]["file_count"]:
                         return False

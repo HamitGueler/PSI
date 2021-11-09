@@ -8,7 +8,7 @@ idea is to have classes for specific test purposes, which are then used and perf
 class FileCreator:
     def create_file(self, directory, file_name):
         try:
-            path = self.create_valid_path(directory) + file_name
+            path = self.create_valid_path(str(directory)) + str(file_name)
 
             with open(path, "w") as file:
                 file.write("FILE CREATED")
