@@ -1,7 +1,7 @@
 When:
   with_name: test.foo
-  in_directory: /foo/bar/<unguelitger Ordnername>
+  in_directory: /foo/bar/<ungueltiger Ordnername>
 Then:
   after: 10.0
   file_count: 1
-  in_directory: /foo/bar/<unguelitger Ordnername>
+  in_directory: /foo/bar/<ungueltiger Ordnername>
